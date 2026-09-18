@@ -5,7 +5,7 @@ const paper = document.querySelector(".paper");
 
 // 🎵 MÚSICA DE LA INVITACIÓN
 // Sin la carpeta "musica/", solo pones el nombre directo del archivo
-const music = new Audio("fiesta wao.mp3");
+const music = new Audio("fiesta.mp3");
 
 music.loop = true;
 music.volume = 0.6;
