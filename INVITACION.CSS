@@ -1,0 +1,1056 @@
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    background: #000;
+    color: white;
+    font-family: Georgia, serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PANTALLA PRINCIPAL
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            #590721 0%,
+            #3b0718 20%,
+            #100207 50%,
+            #000000 85%
+        );
+
+    transition: opacity 1.2s ease;
+}
+
+
+/* =========================================================
+   LUZ ROJA
+========================================================= */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    background: #4b041b;
+
+    border-radius: 50%;
+
+    filter: blur(180px);
+
+    opacity: 0.35;
+
+    animation: pulse 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(0.8);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.45;
+    }
+
+    100% {
+        transform: scale(0.8);
+        opacity: 0.25;
+    }
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,0.15),
+            rgba(0,0,0,0.65)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENIDO INICIAL
+========================================================= */
+
+.intro {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+/* =========================================================
+   UBICACIÓN
+========================================================= */
+
+.location {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 6px;
+
+    color: #d1a45f;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+h1 {
+
+    font-size: clamp(
+        3rem,
+        9vw,
+        8rem
+    );
+
+    line-height: 0.85;
+
+    font-weight: 400;
+
+    letter-spacing: 8px;
+
+    text-shadow:
+
+        0 0 15px rgba(255,255,255,0.2),
+
+        0 0 60px rgba(130,11,47,0.7);
+
+    animation:
+        titleAppear 2s ease forwards;
+}
+
+
+@keyframes titleAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+        letter-spacing: 25px;
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        letter-spacing: 8px;
+    }
+}
+
+
+/* =========================================================
+   FECHA
+========================================================= */
+
+.date {
+
+    margin-top: 35px;
+
+    font-family: Arial, sans-serif;
+
+    letter-spacing: 8px;
+
+    color: #ddd;
+}
+
+
+/* =========================================================
+   BOTÓN
+========================================================= */
+
+button {
+
+    margin-top: 45px;
+
+    padding: 16px 40px;
+
+    background: transparent;
+
+    color: white;
+
+    border:
+        1px solid #7e163c;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    cursor: pointer;
+
+    transition:
+        0.4s ease;
+}
+
+
+button:hover {
+
+    background: #7e163c;
+
+    border-color: #b52b59;
+
+    box-shadow:
+
+        0 0 20px rgba(181,43,89,0.7),
+
+        0 0 60px rgba(158,33,72,0.4);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   VAMPIRE MASQUERADE
+========================================================= */
+
+.letter {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    /* IMPORTANTE:
+       empieza desde arriba para que
+       el contenido pueda crecer */
+    align-items: flex-start;
+
+    padding: 70px 30px;
+
+    /* PERMITE VER TODO EL CONTENIDO */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(140,0,55,0.35),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(50,0,90,0.30),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(180,0,50,0.22),
+            transparent 30%
+        ),
+
+        #020203;
+
+    transition:
+
+        opacity 1.2s ease,
+
+        visibility 1.2s ease;
+}
+
+
+/* =========================================================
+   BARRA DE SCROLL
+========================================================= */
+
+.letter::-webkit-scrollbar {
+
+    width: 8px;
+}
+
+
+.letter::-webkit-scrollbar-track {
+
+    background: #030303;
+}
+
+
+.letter::-webkit-scrollbar-thumb {
+
+    background: #64132f;
+
+    border-radius: 10px;
+}
+
+
+.letter::-webkit-scrollbar-thumb:hover {
+
+    background: #9b1d4b;
+}
+
+
+/* =========================================================
+   LUCES DEL CLUB
+========================================================= */
+
+.club-lights {
+
+    position: absolute;
+
+    inset: -50%;
+
+    z-index: 0;
+
+    background:
+
+        linear-gradient(
+            115deg,
+            transparent 40%,
+            rgba(145,0,55,0.18) 45%,
+            transparent 50%
+        ),
+
+        linear-gradient(
+            70deg,
+            transparent 45%,
+            rgba(70,0,130,0.18) 50%,
+            transparent 55%
+        );
+
+    animation:
+        clubLights 7s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes clubLights {
+
+    0% {
+
+        transform:
+            translateX(-12%)
+            rotate(0deg);
+    }
+
+    50% {
+
+        transform:
+            translateX(12%)
+            rotate(2deg);
+    }
+
+    100% {
+
+        transform:
+            translateX(-12%)
+            rotate(0deg);
+    }
+}
+
+
+/* =========================================================
+   PAPEL / TARJETA
+========================================================= */
+
+.paper {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(760px, 94%);
+
+    /* YA NO FORZAMOS UNA ALTURA */
+    min-height: auto;
+
+    /* Permite que crezca según el contenido */
+    height: auto;
+
+    margin: auto;
+
+    padding: 80px 70px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(130,0,45,0.20),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            145deg,
+            #111014,
+            #050506 60%,
+            #0d080b
+        );
+
+    border:
+        1px solid rgba(160,40,80,0.55);
+
+    box-shadow:
+
+        0 0 60px rgba(0,0,0,0.95),
+
+        0 0 120px rgba(100,0,45,0.30),
+
+        inset 0 0 100px rgba(0,0,0,0.9);
+
+    transform:
+        scale(0.82);
+
+    transition:
+        transform 1.5s cubic-bezier(.16,1,.3,1);
+}
+
+
+/* =========================================================
+   BORDE INTERIOR
+========================================================= */
+
+.paper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 16px;
+
+    border:
+        1px solid rgba(180,130,70,0.20);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   DETALLE ROJO SUPERIOR
+========================================================= */
+
+.paper::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 16px;
+
+    left: 50%;
+
+    width: 110px;
+
+    height: 2px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #8f123d,
+            #d33b67,
+            #8f123d,
+            transparent
+        );
+
+    box-shadow:
+
+        0 0 15px #9b123f,
+
+        0 0 35px rgba(155,18,63,0.7);
+}
+
+
+/* =========================================================
+   NEW ORLEANS
+========================================================= */
+
+.letter-small {
+
+    position: relative;
+
+    z-index: 3;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 45px;
+
+    color: #a98758;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TÍTULO DE LA FIESTA
+========================================================= */
+
+.paper h2 {
+
+    position: relative;
+
+    z-index: 3;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        3rem,
+        7vw,
+        6rem
+    );
+
+    font-weight: 400;
+
+    line-height: 0.82;
+
+    letter-spacing: 3px;
+
+    color: #f0eeee;
+
+    text-shadow:
+
+        0 0 20px rgba(255,255,255,0.08),
+
+        0 0 50px rgba(140,0,55,0.55);
+}
+
+
+/* =========================================================
+   FRASE PRINCIPAL
+========================================================= */
+
+.event-intro {
+
+    position: relative;
+
+    z-index: 3;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #d32d63;
+
+    margin-top: 35px;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 15px rgba(211,45,99,0.5);
+}
+
+
+/* =========================================================
+   TEXTO INTRODUCTORIO
+========================================================= */
+
+.letter-text {
+
+    position: relative;
+
+    z-index: 3;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+
+    font-style: italic;
+
+    color: #c2bfc2;
+}
+
+
+/* =========================================================
+   DIVISOR
+========================================================= */
+
+.divider {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 180px;
+
+    height: 1px;
+
+    margin: 45px auto;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #9b123f,
+            #a98758,
+            #9b123f,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(155,18,63,0.7);
+}
+
+
+/* =========================================================
+   INFORMACIÓN DE LA FIESTA
+========================================================= */
+
+.party-info {
+
+    position: relative;
+
+    z-index: 3;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin: 45px 0;
+}
+
+
+.party-info div {
+
+    padding: 18px 10px;
+
+    border-top:
+        1px solid rgba(169,135,88,0.3);
+
+    border-bottom:
+        1px solid rgba(169,135,88,0.3);
+
+    background:
+        rgba(255,255,255,0.015);
+}
+
+
+.party-info span {
+
+    display: block;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+
+    margin-bottom: 8px;
+}
+
+
+.party-info strong {
+
+    display: block;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #ddd;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   TEXTO DE FIESTA
+========================================================= */
+
+.party-text {
+
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 0.95rem;
+
+    line-height: 1.8;
+
+    letter-spacing: 1px;
+
+    color: #aaa;
+}
+
+
+/* =========================================================
+   DRESS CODE
+========================================================= */
+
+.dress-code {
+
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: 45px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    line-height: 1.7;
+
+    letter-spacing: 3px;
+
+    color: #a98758;
+
+    text-shadow:
+        0 0 15px rgba(169,135,88,0.3);
+}
+
+
+/* =========================================================
+   FIRMA
+========================================================= */
+
+.signature {
+
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: 45px;
+
+    padding-bottom: 10px;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    letter-spacing: 8px;
+
+    color: #777;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .letter {
+
+        padding:
+            50px 20px;
+    }
+
+
+    .paper {
+
+        width: 92%;
+
+        padding:
+            70px 45px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — CELULARES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .intro {
+
+        padding: 20px;
+    }
+
+
+    .location {
+
+        font-size: 9px;
+
+        letter-spacing: 4px;
+
+        line-height: 1.5;
+    }
+
+
+    h1 {
+
+        font-size: clamp(
+            2.5rem,
+            13vw,
+            5rem
+        );
+
+        letter-spacing: 5px;
+    }
+
+
+    .date {
+
+        font-size: 10px;
+
+        letter-spacing: 5px;
+    }
+
+
+    button {
+
+        padding:
+            14px 28px;
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+
+    /* CONTENEDOR DE LA CARTA */
+
+    .letter {
+
+        padding:
+            35px 12px;
+
+        align-items: flex-start;
+
+        overflow-y: auto;
+    }
+
+
+    /* TARJETA */
+
+    .paper {
+
+        width: 96%;
+
+        min-height: auto;
+
+        height: auto;
+
+        margin: auto;
+
+        padding:
+            60px 25px;
+    }
+
+
+    .letter-small {
+
+        font-size: 8px;
+
+        letter-spacing: 5px;
+
+        line-height: 1.5;
+
+        margin-bottom: 35px;
+    }
+
+
+    .paper h2 {
+
+        font-size: clamp(
+            2.5rem,
+            12vw,
+            4rem
+        );
+
+        line-height: 0.9;
+    }
+
+
+    .event-intro {
+
+        font-size: 0.72rem;
+
+        letter-spacing: 2px;
+
+        line-height: 1.5;
+
+        margin-top: 30px;
+    }
+
+
+    .letter-text {
+
+        font-size: 1rem;
+
+        line-height: 1.7;
+    }
+
+
+    .divider {
+
+        width: 130px;
+
+        margin: 35px auto;
+    }
+
+
+    /* INFO */
+
+    .party-info {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin: 35px 0;
+    }
+
+
+    .party-info div {
+
+        padding: 15px;
+    }
+
+
+    .party-info strong {
+
+        font-size: 9px;
+
+        line-height: 1.5;
+    }
+
+
+    /* TEXTO */
+
+    .party-text {
+
+        font-size: 0.85rem;
+
+        line-height: 1.8;
+    }
+
+
+    /* DRESS CODE */
+
+    .dress-code {
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+
+        line-height: 1.8;
+
+        margin-top: 35px;
+    }
+
+
+    /* FIRMA */
+
+    .signature {
+
+        margin-top: 40px;
+
+        font-size: 10px;
+
+        letter-spacing: 6px;
+
+        padding-bottom: 5px;
+    }
+
+}
