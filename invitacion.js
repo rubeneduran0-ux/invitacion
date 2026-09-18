@@ -4,7 +4,7 @@ const letter = document.getElementById("letter");
 const paper = document.querySelector(".paper");
 
 // 🎵 MÚSICA DE LA INVITACIÓN
-const music = new Audio("musica/fiesta.mp3");
+const music = new Audio("musica/fiesta wao.mp3");
 
 music.loop = true;
 music.volume = 0.6;
