@@ -3,7 +3,7 @@ const inicio = document.querySelector(".hero");
 const letter = document.getElementById("letter");
 const paper = document.querySelector(".paper");
 
-// 🎵 MÚSICA DE LA INVITACIÓN (Asegúrate de que tu archivo dentro de /musica se llame fiesta.mp3)
+// 🎵 MÚSICA DE LA INVITACIÓN
 const music = new Audio("musica/fiesta.mp3");
 
 music.loop = true;
@@ -21,6 +21,7 @@ enterButton.addEventListener("click", () => {
     inicio.style.opacity = "0";
 
     setTimeout(() => {
+
         // Ocultar pantalla inicial
         inicio.style.display = "none";
 
